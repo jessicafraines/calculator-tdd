@@ -13,7 +13,8 @@ function press(buttonValue){
       break;
 
     case '-':
-      // handle -
+      prior = ($('#displayoutput').val() * 1) - prior;
+      $('#displayoutput').val('');
       break;
 
     case '*':
@@ -29,8 +30,9 @@ function press(buttonValue){
       break;
 
     case '=':
-      prior += $('#displayoutput').val() * 1;
-      $('#displayoutput').val(prior);
+      current = prior += $('#displayoutput').val() * 1;
+      var currRounded = Math.round((current) * 1e12) / 1e12;
+      $('#displayoutput').val(currRounded);
       prior = 0;
       break;
 
