@@ -3,6 +3,8 @@ function displayOutput(){
 }
 
 var prior = 0;
+var current = 0;
+var operator;
 
 function press(buttonValue){
 
@@ -10,19 +12,37 @@ function press(buttonValue){
     case '+':
       prior += +$('#displayoutput').val();
       $('#displayoutput').val('');
+      operator = '+';
       break;
 
     case '-':
-      prior = ($('#displayoutput').val() * 1) - prior;
-      $('#displayoutput').val('');
+      if(prior === 0){
+        prior += $('#displayoutput').val() * 1;
+        }else{
+        current = prior - $('#displayoutput').val() * 1;
+        }
+        $('#displayoutput').val('');
+        operator = '-';
       break;
 
     case '*':
-      // handle *
+      if(prior === 0){
+        prior += $('#displayoutput').val() * 1;
+        }else{
+        current = prior * $('#displayoutput').val() * 1;
+        }
+        $('#displayoutput').val('');
+        operator = '*';
       break;
 
     case '/':
-      // handle /
+      if(prior === 0){
+        prior += $('#displayoutput').val() * 1;
+        }else{
+        current = prior / $('#displayoutput').val() * 1;
+        }
+        $('#displayoutput').val('');
+        operator = '/';
       break;
 
     case 'C':
@@ -30,9 +50,22 @@ function press(buttonValue){
       break;
 
     case '=':
-      current = prior += $('#displayoutput').val() * 1;
+      if(operator === '+'){
+      current = prior + $('#displayoutput').val() * 1;
       var currRounded = Math.round((current) * 1e12) / 1e12;
       $('#displayoutput').val(currRounded);
+      }else if(operator === '-'){
+      current = prior - $('#displayoutput').val() * 1;
+      var currRounded = Math.round((current) * 1e12) / 1e12;
+      $('#displayoutput').val(currRounded);
+      }else if(operator === '*'){
+      current = prior * $('#displayoutput').val() * 1;
+      var currRounded = Math.round((current) * 1e12) / 1e12;
+      $('#displayoutput').val(currRounded);
+      }else if(operator === '/'){
+      current = prior / $('#displayoutput').val() * 1;
+      var currRounded = Math.round((current) * 1e12) / 1e12;
+      $('#displayoutput').val(currRounded);}
       prior = 0;
       break;
 

@@ -242,9 +242,8 @@
         assert.equal(displayOutput(), '4');
       });
     });
-  }); //multiply close bracket
+  }); //divide close bracket
 
-})(); //iife close bracket
 
 
 })(); //iife close bracket
