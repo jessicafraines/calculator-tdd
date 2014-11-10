@@ -2,71 +2,88 @@ function displayOutput(){
   return $('#displayoutput').val();
 }
 
-var prior = 0;
-var current = 0;
-var operator;
+var previousResult;
+var nextOperation;
+
+/*function operation(a, b, operator){
+  switch(operator){
+    case 'add':
+    return Math.round((a + b) * 1e12) / 1e12;
+    break;
+    case 'subtract':
+    return Math.round((a - b) * 1e12) / 1e12;
+    break;
+    case 'multiply':
+    return Math.round((a * b) * 1e12) / 1e12;
+    break;
+    case 'divide':
+    return Math.round((a / b) * 1e12) / 1e12;
+    break;
+  }
+}*/
+
+function add(a, b){
+  return Math.round((a + b) * 1e12) / 1e12;
+}
+
+function subtract(a, b){
+  return Math.round((a - b) * 1e12) / 1e12;
+}
+
+function multiply(a, b){
+  return Math.round((a * b) * 1e12) / 1e12;
+}
+
+function divide(a, b){
+  return Math.round((a / b) * 1e12) / 1e12;
+}
+
+function currentValue(string){
+  return $('#displayoutput').val() * 1;
+}
+function calculate(){
+  if(!!nextOperation){
+    previousResult = nextOperation(previousResult, currentValue());
+  }else{
+    previousResult = currentValue();
+  }
+}
 
 function press(buttonValue){
 
   switch (buttonValue) {
     case '+':
-      prior += +$('#displayoutput').val();
+      calculate();
+      nextOperation = add;
       $('#displayoutput').val('');
-      operator = '+';
       break;
 
     case '-':
-      if(prior === 0){
-        prior += $('#displayoutput').val() * 1;
-        }else{
-        current = prior - $('#displayoutput').val() * 1;
-        }
-        $('#displayoutput').val('');
-        operator = '-';
+      calculate();
+      nextOperation = subtract;
+      $('#displayoutput').val('');
       break;
 
     case '*':
-      if(prior === 0){
-        prior += $('#displayoutput').val() * 1;
-        }else{
-        current = prior * $('#displayoutput').val() * 1;
-        }
-        $('#displayoutput').val('');
-        operator = '*';
+      calculate();
+      nextOperation = multiply;
+      $('#displayoutput').val('');
       break;
 
     case '/':
-      if(prior === 0){
-        prior += $('#displayoutput').val() * 1;
-        }else{
-        current = prior / $('#displayoutput').val() * 1;
-        }
-        $('#displayoutput').val('');
-        operator = '/';
+      calculate();
+      nextOperation = divide;
+      $('#displayoutput').val('');
       break;
 
     case 'C':
-      // handle C
+      previousResult = 0;
+      //return $('#displayoutput').val('0');
       break;
 
     case '=':
-      if(operator === '+'){
-      current = prior + $('#displayoutput').val() * 1;
-      var currRounded = Math.round((current) * 1e12) / 1e12;
-      $('#displayoutput').val(currRounded);
-      }else if(operator === '-'){
-      current = prior - $('#displayoutput').val() * 1;
-      var currRounded = Math.round((current) * 1e12) / 1e12;
-      $('#displayoutput').val(currRounded);
-      }else if(operator === '*'){
-      current = prior * $('#displayoutput').val() * 1;
-      var currRounded = Math.round((current) * 1e12) / 1e12;
-      $('#displayoutput').val(currRounded);
-      }else if(operator === '/'){
-      current = prior / $('#displayoutput').val() * 1;
-      var currRounded = Math.round((current) * 1e12) / 1e12;
-      $('#displayoutput').val(currRounded);}
-      prior = 0;
+      calculate();
+      $('#displayoutput').val(previousResult);
       break;
 
     case '+/-':
@@ -75,6 +92,6 @@ function press(buttonValue){
 
     default:
       var current =  $('#displayoutput').val();
-      $('#displayoutput').val(current += buttonValue);
+      $('#displayoutput').val(current + buttonValue);
   }
 }

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "homepage": "https://github.com/jessicafraines/calculator-tdd",
   "authors": [
-    "jessicafraines <jessicafraines@gmail.com>"
+    "jessicafraines <jessicafraines@gmail.com>", "jaclynpasquale <jaclynpasquale@gmail.com>"
   ],
   "description": "A calculator app",
   "main": "index.html",
