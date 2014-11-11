@@ -95,3 +95,15 @@ function press(buttonValue){
       $('#displayoutput').val(current + buttonValue);
   }
 }
+document.addEventListener('DOMContentLoaded', function(){
+  var keys = document.querySelectorAll('.calcBody span');
+  for(var i = 0; i < keys.length, i++){
+    keys[i].onclick = function(){
+      var input = document.querySelector('.screen');
+      var inputValue = input.innerHTML;
+      var buttonValue = this.innerHTML;
+    }
+  }
+});
+
+
