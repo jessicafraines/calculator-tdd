@@ -353,6 +353,61 @@
       assert.equal(displayOutput(), '4');
     });
   }); //clear close bracket
+  describe('Mixed', function () {
+    it('should be 16', function(){
+        press('.');
+        press(8);
+        press('/');
+        press('.');
+        press(2);
+        press('*');
+        press('4');
+        press('=');
+      assert.equal(displayOutput(), '16');
+    });  
 
+    /*it('should be 24', function(){
+        press('.');
+        press(8);
+        press('/');
+        press('.');
+        press(2);
+        press('=');
+        //press('C');
+        //press(4);
+        press('*');
+        press(6);
+        press('=');
+      assert.equal(displayOutput(), '24');
+    }); */ 
+    it('should be 10', function(){
+        press('.');
+        press(8);
+        press('/');
+        press('.');
+        press(2);
+        press('C');
+        press(4);
+        press('+');
+        press(6);
+        press('=');
+      assert.equal(displayOutput(), '10');
+    });  
+    it('should be -7 ', function(){
+        press(9);
+        press('+');
+        press(0);
+        press('*');
+        press(4);
+        press('=');
+        press(0);
+        press('/');
+        press(9);
+        press('-');
+        press(7);
+        press('=');
+      assert.equal(displayOutput(), '-7');
+    });  
+  }); //mixed close bracket
 
 })(); //iife close bracket

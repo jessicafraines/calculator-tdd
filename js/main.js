@@ -77,8 +77,8 @@ function press(buttonValue){
       break;
 
     case 'C':
-      previousResult = 0;
-      //return $('#displayoutput').val('0');
+      calculate();
+      return $('#displayoutput').val(0);
       break;
 
     case '=':
