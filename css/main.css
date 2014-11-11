@@ -1,0 +1,71 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100);
+body {
+  color: #2b2620;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  font-size: 1.2em;
+
+}
+.calcBody {
+  width: 350px;
+  background-color: #2b2620;
+  border-radius: 20px;
+  height: 475px;
+  margin: auto;
+  padding-left: 14px;
+  box-shadow: 0px 5px #666;
+}
+span {
+  color: #2b2620;
+  width: 11%;
+  background-color: #cfe4c3;
+  height: 15%;
+  padding: 13px;
+  margin: 10px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 5px #666;
+}
+
+.zero {
+  width: 35%;
+}
+
+.keys span, .topRow span.clear {
+  float: left;
+  postion: relative;
+  top: 0;
+}
+
+.spacer {
+  height: 15px;
+  width: 320px;
+}
+
+span.clear {
+  width: 35%
+}
+
+ .screen {
+  height: 60px;
+  border-radius: 10px;
+  text-align: right;
+  background-color: #f5f3da;
+  margin: 10px;
+  width: 320px;
+  box-shadow: inset 0px 5px #666;
+}
+
+.equal {
+  background-color: #afb35c;
+  float: right;
+  width: 35%;
+}
+
+.operator {
+  background-color: #afb35c;
+  border-radius: 10px;
+  float: right;
+  box-shadow: 0px 5px #666;
+  
+}
