@@ -1,45 +1,36 @@
+
 function displayOutput(){
-  return $('#displayoutput').val();
+  return $('#displayoutput').text();
 }
+$(document).ready(function(){
+  displayOutput();
+  $('span').click(function(){
+    press($(this).text());
+  });
+});
+
+/*document.querySelector('.calcBody span').addEventListener('click', function(){
+  press($(this).text());
+});*/
+
 
 var previousResult;
 var nextOperation;
 
-/*function operation(a, b, operator){
-  switch(operator){
-    case 'add':
-    return Math.round((a + b) * 1e12) / 1e12;
-    break;
-    case 'subtract':
-    return Math.round((a - b) * 1e12) / 1e12;
-    break;
-    case 'multiply':
-    return Math.round((a * b) * 1e12) / 1e12;
-    break;
-    case 'divide':
-    return Math.round((a / b) * 1e12) / 1e12;
-    break;
-  }
-}*/
-
 function add(a, b){
   return Math.round((a + b) * 1e12) / 1e12;
 }
-
 function subtract(a, b){
   return Math.round((a - b) * 1e12) / 1e12;
 }
-
 function multiply(a, b){
   return Math.round((a * b) * 1e12) / 1e12;
 }
-
 function divide(a, b){
   return Math.round((a / b) * 1e12) / 1e12;
 }
-
 function currentValue(string){
-  return $('#displayoutput').val() * 1;
+  return $('#displayoutput').text() * 1;
 }
 function calculate(){
   if(!!nextOperation){
@@ -48,62 +39,44 @@ function calculate(){
     previousResult = currentValue();
   }
 }
-
 function press(buttonValue){
-
   switch (buttonValue) {
     case '+':
       calculate();
       nextOperation = add;
-      $('#displayoutput').val('');
+      $('#displayoutput').text('');
       break;
-
     case '-':
-      calculate();
-      nextOperation = subtract;
-      $('#displayoutput').val('');
-      break;
-
-    case '*':
-      calculate();
-      nextOperation = multiply;
-      $('#displayoutput').val('');
-      break;
-
-    case '/':
-      calculate();
-      nextOperation = divide;
-      $('#displayoutput').val('');
-      break;
-
-    case 'C':
-      calculate();
-      return $('#displayoutput').val(0);
-      break;
-
-    case '=':
-      calculate();
-      $('#displayoutput').val(previousResult);
-      break;
-
-    case '+/-':
-      // handle +/-
-      break;
-
-    default:
-      var current =  $('#displayoutput').val();
-      $('#displayoutput').val(current + buttonValue);
+        calculate();
+        nextOperation = subtract;
+        $('#displayoutput').text('');
+        break;
+      case '*':
+        calculate();
+        nextOperation = multiply;
+        $('#displayoutput').text('');
+        break;
+      case '/':
+        calculate();
+        nextOperation = divide;
+        $('#displayoutput').text('');
+        break;
+      case 'C':
+        calculate();
+        previousResult = 0;
+        $('#displayoutput').text(previousResult);
+        break;
+      case '=':
+        calculate();
+        $('#displayoutput').text(previousResult);
+        break;
+      case '+/-':
+        // handle +/-
+        break;
+      default:
+        var current =  $('#displayoutput').text();
+        console.log('c', current);
+        console.log('BV', buttonValue);
+        $('#displayoutput').text(current + buttonValue);
   }
 }
-document.addEventListener('DOMContentLoaded', function(){
-  var keys = document.querySelectorAll('.calcBody span');
-  for(var i = 0; i < keys.length, i++){
-    keys[i].onclick = function(){
-      var input = document.querySelector('.screen');
-      var inputValue = input.innerHTML;
-      var buttonValue = this.innerHTML;
-    }
-  }
-});
-
-

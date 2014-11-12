@@ -6,17 +6,17 @@
   beforeEach(function(){
     previousResult = undefined;
     nextOperation = undefined;
-    $('#displayoutput').val('');
+    $('#displayoutput').text('');
   });
 
   describe('Entering numbers', function(){
 
     describe('displayoutput', function(){
       it('should return the value of the display', function(){
-        $('#displayoutput').val(1.23);
+        $('#displayoutput').text(1.23);
         assert.equal(displayOutput(), 1.23);
 
-        $('#displayoutput').val(2.34);
+        $('#displayoutput').text(2.34);
         assert.equal(displayOutput(), 2.34);
       });
     });
@@ -313,6 +313,17 @@
         press('/');
         press('.');
         press(2);
+        press('=');
+        assert.equal(displayOutput(), '4');
+      });
+    });
+    describe('22 / 7 =', function(){
+      it('should be 4', function () {
+        press(2);
+        press(2);
+        press('/');
+        press(2);
+        press(7);
         press('=');
         assert.equal(displayOutput(), '4');
       });
