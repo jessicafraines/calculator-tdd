@@ -73,9 +73,9 @@ function press(buttonValue) {
       $('#displayoutput').text('');
       break;
     case 'C':
-      //calculate();
-      previousResult = "";
-      $('#displayoutput').text(previousResult);
+      previousResult = undefined;
+      nextOperation = undefined;
+      $('#displayoutput').text('');
       break;
     case '=':
       calculate();
