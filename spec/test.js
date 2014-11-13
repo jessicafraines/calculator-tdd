@@ -1,18 +1,19 @@
 /* global describe, it */
 
-;(function(){
+;
+(function() {
   'use strict';
 
-  beforeEach(function(){
+  beforeEach(function() {
     previousResult = undefined;
     nextOperation = undefined;
     $('#displayoutput').text('');
   });
 
-  describe('Entering numbers', function(){
+  describe('Entering numbers', function() {
 
-    describe('displayoutput', function(){
-      it('should return the value of the display', function(){
+    describe('displayoutput', function() {
+      it('should return the value of the display', function() {
         $('#displayoutput').text(1.23);
         assert.equal(displayOutput(), 1.23);
 
@@ -21,16 +22,16 @@
       });
     });
 
-    describe('press', function(){
-      it('should display the number pressed', function(){
+    describe('press', function() {
+      it('should display the number pressed', function() {
         assert.equal(displayOutput(), '');
         press(1);
         assert.equal(displayOutput(), 1);
       });
     });
 
-    describe('Entering the decimal number 7 . 8 9', function(){
-      it('should display 7.89', function(){
+    describe('Entering the decimal number 7 . 8 9', function() {
+      it('should display 7.89', function() {
         press(7);
         press('.');
         press(8);
@@ -38,11 +39,11 @@
         assert.equal(displayOutput(), 7.89);
       });
     });
-  });//entering numbers bracket
+  }); //entering numbers bracket
 
-  describe('Adding', function () {
-    describe('7 . 8 9 + 1 + 2 =', function(){
-      it('should be 10.89', function () {
+  describe('Adding', function() {
+    describe('7 . 8 9 + 1 + 2 =', function() {
+      it('should be 10.89', function() {
         press(7);
         press('.');
         press(8);
@@ -55,8 +56,8 @@
         assert.equal(displayOutput(), '10.89');
       });
     });
-    describe('7 . 8 9 + 1 . 0 0 + 2 =', function(){
-      it('should be 10.89', function () {
+    describe('7 . 8 9 + 1 . 0 0 + 2 =', function() {
+      it('should be 10.89', function() {
         press(7);
         press('.');
         press(8);
@@ -72,8 +73,8 @@
         assert.equal(displayOutput(), '10.89');
       });
     });
-    describe('1 + 0 =', function(){
-      it('should be 1', function () {
+    describe('1 + 0 =', function() {
+      it('should be 1', function() {
         press(1);
         press('+');
         press(0);
@@ -81,8 +82,8 @@
         assert.equal(displayOutput(), '1');
       });
     });
-    describe('1 + 0 + 4 =', function(){
-      it('should be 5', function () {
+    describe('1 + 0 + 4 =', function() {
+      it('should be 5', function() {
         press(1);
         press('+');
         press(0);
@@ -92,8 +93,8 @@
         assert.equal(displayOutput(), '5');
       });
     });
-    describe('1 + 1 =', function(){
-      it('should be 2', function () {
+    describe('1 + 1 =', function() {
+      it('should be 2', function() {
         press(1);
         press('+');
         press(1);
@@ -101,8 +102,8 @@
         assert.equal(displayOutput(), '2');
       });
     });
-    describe('. 1 + . 2 =', function(){
-      it('should be 0.3', function () {
+    describe('. 1 + . 2 =', function() {
+      it('should be 0.3', function() {
         press('.');
         press(1);
         press('+');
@@ -113,10 +114,10 @@
       });
     });
   }); //adding close bracket
-  
-  describe('Subtraction', function () {
-    describe('7 . 8 9 - 1 - 2 =', function(){
-      it('should be 4.89', function () {
+
+  describe('Subtraction', function() {
+    describe('7 . 8 9 - 1 - 2 =', function() {
+      it('should be 4.89', function() {
         press(7);
         press('.');
         press(8);
@@ -129,8 +130,8 @@
         assert.equal(displayOutput(), '4.89');
       });
     });
-    describe('7 . 8 9 - 1 - 0 - 2 =', function(){
-      it('should be 4.89', function () {
+    describe('7 . 8 9 - 1 - 0 - 2 =', function() {
+      it('should be 4.89', function() {
         press(7);
         press('.');
         press(8);
@@ -145,8 +146,8 @@
         assert.equal(displayOutput(), '4.89');
       });
     });
-    describe('7 . 8 9 - 1 . 0 0 - 2 =', function(){
-      it('should be 4.89', function () {
+    describe('7 . 8 9 - 1 . 0 0 - 2 =', function() {
+      it('should be 4.89', function() {
         press(7);
         press('.');
         press(8);
@@ -162,8 +163,8 @@
         assert.equal(displayOutput(), '4.89');
       });
     });
-    describe('1 - 1 =', function(){
-      it('should be 0', function () {
+    describe('1 - 1 =', function() {
+      it('should be 0', function() {
         press(1);
         press('-');
         press(1);
@@ -171,8 +172,8 @@
         assert.equal(displayOutput(), '0');
       });
     });
-    describe('. 1 - . 2 =', function(){
-      it('should be 0.3', function () {
+    describe('. 1 - . 2 =', function() {
+      it('should be 0.3', function() {
         press('.');
         press(1);
         press('-');
@@ -184,9 +185,9 @@
     });
   }); //subtraction close bracket
 
-  describe('Multiply', function () {
-    describe('7 . 8 9 * 2 =', function(){
-      it('should be 15.78', function () {
+  describe('Multiply', function() {
+    describe('7 . 8 9 * 2 =', function() {
+      it('should be 15.78', function() {
         press(7);
         press('.');
         press(8);
@@ -197,8 +198,8 @@
         assert.equal(displayOutput(), '15.78');
       });
     });
-    describe('7 . 8 9 * 0 =', function(){
-      it('should be 0', function () {
+    describe('7 . 8 9 * 0 =', function() {
+      it('should be 0', function() {
         press(7);
         press('.');
         press(8);
@@ -209,8 +210,8 @@
         assert.equal(displayOutput(), '0');
       });
     });
-    describe('7 . 8 9 * 0 * 2 =', function(){
-      it('should be 0', function () {
+    describe('7 . 8 9 * 0 * 2 =', function() {
+      it('should be 0', function() {
         press(7);
         press('.');
         press(8);
@@ -223,8 +224,8 @@
         assert.equal(displayOutput(), '0');
       });
     });
-    describe('7 . 8 9 * 1 . 0 0 * 2 =', function(){
-      it('should be 15.78', function () {
+    describe('7 . 8 9 * 1 . 0 0 * 2 =', function() {
+      it('should be 15.78', function() {
         press(7);
         press('.');
         press(8);
@@ -240,8 +241,8 @@
         assert.equal(displayOutput(), '15.78');
       });
     });
-    describe('4 * 4 =', function(){
-      it('should be 16', function () {
+    describe('4 * 4 =', function() {
+      it('should be 16', function() {
         press(4);
         press('*');
         press(4);
@@ -249,8 +250,8 @@
         assert.equal(displayOutput(), '16');
       });
     });
-    describe('. 1 * . 2 =', function(){
-      it('should be 0.02', function () {
+    describe('. 1 * . 2 =', function() {
+      it('should be 0.02', function() {
         press('.');
         press(1);
         press('*');
@@ -262,9 +263,9 @@
     });
   }); //multiply close bracket
 
-  describe('Divide', function () {
-    describe('7 . 8 9 / 2 =', function(){
-      it('should be 3.945', function () {
+  describe('Divide', function() {
+    describe('7 . 8 9 / 2 =', function() {
+      it('should be 3.945', function() {
         press(7);
         press('.');
         press(8);
@@ -275,8 +276,8 @@
         assert.equal(displayOutput(), '3.945');
       });
     });
-    describe('8 / 1 / 2 =', function(){
-      it('should be 4', function () {
+    describe('8 / 1 / 2 =', function() {
+      it('should be 4', function() {
         press(8);
         press('/');
         press(1);
@@ -286,8 +287,8 @@
         assert.equal(displayOutput(), '4');
       });
     });
-    describe('8 / 4 / 2 =', function(){
-      it('should be 1', function () {
+    describe('8 / 4 / 2 =', function() {
+      it('should be 1', function() {
         press(8);
         press('/');
         press(4);
@@ -297,8 +298,8 @@
         assert.equal(displayOutput(), '1');
       });
     });
-    describe('8 / 4 =', function(){
-      it('should be 2', function () {
+    describe('8 / 4 =', function() {
+      it('should be 2', function() {
         press(8);
         press('/');
         press(4);
@@ -306,8 +307,8 @@
         assert.equal(displayOutput(), '2');
       });
     });
-    describe('. 8 / . 2 =', function(){
-      it('should be 4', function () {
+    describe('. 8 / . 2 =', function() {
+      it('should be 4', function() {
         press('.');
         press(8);
         press('/');
@@ -317,9 +318,8 @@
         assert.equal(displayOutput(), '4');
       });
     });
-    describe('22 / 7 =', function(){
-      it("should be 3.14...", function(){
-        (2, 2, '/', 7, '=');
+    describe('22 / 7 =', function() {
+      it('should be 3.14...', function() {
         press(2);
         press(2);
         press('/');
@@ -330,52 +330,52 @@
     });
   }); //divide close bracket
 
-  describe('Clear', function () {
-    it('should be 0', function(){
-        press('.');
-        press(8);
-        press('/');
-        press('.');
-        press(2);
-        press('=');
-        press('C');
-      assert.equal(displayOutput(), '0');
-    });  
-    it('should be 0', function(){
-        press('.');
-        press(8);
-        press('/');
-        press('.');
-        press(2);
-        press('C');
-      assert.equal(displayOutput(), '0');
+  describe('Clear', function() {
+    it('should be 0', function() {
+      press('.');
+      press(8);
+      press('/');
+      press('.');
+      press(2);
+      press('=');
+      press('C');
+      assert.equal(displayOutput(), '');
     });
-    it('should be 4', function(){
-        press('.');
-        press(8);
-        press('/');
-        press('.');
-        press(2);
-        press('C');
-        press(2);
-        press('+');
-        press(2);
-        press('=');
-      assert.equal(displayOutput(), '4');
+    it('should be 0', function() {
+      press('.');
+      press(8);
+      press('/');
+      press('.');
+      press(2);
+      press('C');
+      assert.equal(displayOutput(), '');
+    });
+    it('should be 4', function() {
+      press('.');
+      press(8);
+      press('/');
+      press('.');
+      press(2);
+      press('C');
+      press(2);
+      press('+');
+      press(2);
+      press('=');
+      assert.equal(displayOutput(), 4);
     });
   }); //clear close bracket
-  describe('Mixed', function () {
-    it('should be 16', function(){
-        press('.');
-        press(8);
-        press('/');
-        press('.');
-        press(2);
-        press('*');
-        press('4');
-        press('=');
+  describe('Mixed', function() {
+    it('should be 16', function() {
+      press('.');
+      press(8);
+      press('/');
+      press('.');
+      press(2);
+      press('*');
+      press(4);
+      press('=');
       assert.equal(displayOutput(), '16');
-    });  
+    });
 
     /*it('should be 24', function(){
         press('.');
@@ -390,35 +390,35 @@
         press(6);
         press('=');
       assert.equal(displayOutput(), '24');
-    }); */ 
-    it('should be 10', function(){
-        press('.');
-        press(8);
-        press('/');
-        press('.');
-        press(2);
-        press('C');
-        press(4);
-        press('+');
-        press(6);
-        press('=');
+    }); */
+    it('should be 10', function() {
+      press('.');
+      press(8);
+      press('/');
+      press('.');
+      press(2);
+      press('C');
+      press(4);
+      press('+');
+      press(6);
+      press('=');
       assert.equal(displayOutput(), '10');
-    });  
-    it('should be -7 ', function(){
-        press(9);
-        press('+');
-        press(0);
-        press('*');
-        press(4);
-        press('=');
-        press(0);
-        press('/');
-        press(9);
-        press('-');
-        press(7);
-        press('=');
+    });
+    it('should be -7 ', function() {
+      press(9);
+      press('+');
+      press(0);
+      press('*');
+      press(4);
+      press('=');
+      press(0);
+      press('/');
+      press(9);
+      press('-');
+      press(7);
+      press('=');
       assert.equal(displayOutput(), '-7');
-    });  
+    });
   }); //mixed close bracket
 
 })(); //iife close bracket

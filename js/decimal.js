@@ -6,13 +6,11 @@ function Decimal(initialValue){
     var difference = this.value - subtrahend.value;
     return new Decimal(difference);
   }
-
   this.plus = function(addend){
     var sum = this.value + addend.value;
     var digits = Math.max(this.mantissa, addend.mantissa);
     return new Decimal(sum.toFixed(digits));
   }
-
   this.times = function(multiplicand){
     var product = this.value * multiplicand.value;
     return new Decimal(product);
@@ -26,4 +24,3 @@ function Decimal(initialValue){
     return this.value.toString();
   }
 }
-
