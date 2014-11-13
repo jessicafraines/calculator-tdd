@@ -4,17 +4,10 @@ function displayOutput() {
 }
 
 $(document).ready(function() {
-  //displayOutput();
   $('span').click(function() {
-    //console.log($(this)); this is the span screen
     press($(this).text());
   });
 });
-
-/*document.querySelector('.calcBody span').addEventListener('click', function(){
-  press($(this).text());
-});*/
-
 
 var previousResult;
 var nextOperation;
@@ -22,31 +15,27 @@ var nextOperation;
 function add(a, b) {
   var left = new Decimal(a);
   var right = new Decimal(b);
-  //var result = a.minus(b);
   return (left.plus(right));
-  //return Math.round((a + b) * 1e12) / 1e12;
 }
 
 function subtract(a, b) {
   var left = new Decimal(a);
   var right = new Decimal(b);
   return (left.minus(right));
-  //return Math.round((a - b) * 1e12) / 1e12;
 }
 
 function multiply(a, b) {
   var left = new Decimal(a);
   var right = new Decimal(b);
   console.log(left.times(right));
-  //return (left.times(right));
-  //return Math.round((a * b) * 1e12) / 1e12;
+  return (left.times(right));
 }
 
 function divide(a, b) {
   var left = new Decimal(a);
   var right = new Decimal(b);
+  console.log(left.times(right));
   return (left.dividedBy(right));
-  //return Math.round((a / b) * 1e12) / 1e12;
 }
 
 function currentValue(string) {
@@ -84,7 +73,7 @@ function press(buttonValue) {
       $('#displayoutput').text('');
       break;
     case 'C':
-      calculate();
+      //calculate();
       previousResult = "";
       $('#displayoutput').text(previousResult);
       break;
@@ -97,8 +86,6 @@ function press(buttonValue) {
       break;
     default:
       var current = $('#displayoutput').text();
-      //console.log('c', current);
-      //console.log('BV', buttonValue);
       $('#displayoutput').text(current + buttonValue);
   }
 }
