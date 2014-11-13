@@ -54,6 +54,8 @@ span.clear {
   margin: 10px;
   width: 320px;
   box-shadow: inset 0px 5px #666;
+  text-align: center;
+  text-indent: 200px;
 }
 
 .equal {

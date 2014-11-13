@@ -318,14 +318,14 @@
       });
     });
     describe('22 / 7 =', function(){
-      it('should be 4', function () {
+      it("should be 3.14...", function(){
+        (2, 2, '/', 7, '=');
         press(2);
         press(2);
         press('/');
-        press(2);
         press(7);
         press('=');
-        assert.equal(displayOutput(), '4');
+        assert.equal(displayOutput(), '3.142857143');
       });
     });
   }); //divide close bracket
