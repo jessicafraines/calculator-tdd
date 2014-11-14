@@ -13,7 +13,8 @@ function Decimal(initialValue){
   }
   this.times = function(multiplicand){
     var product = this.value * multiplicand.value;
-    return new Decimal(product);
+    var fixedProduct = product.toFixed(9);
+    return new Decimal(fixedProduct);
   }
   this.dividedBy = function(divisor){
     var quotient = this.value / divisor.value;

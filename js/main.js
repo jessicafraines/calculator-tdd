@@ -50,6 +50,10 @@ function calculate() {
   }
 }
 
+function equal(){
+  return currentValue();
+}
+
 function press(buttonValue) {
   switch (buttonValue) {
     case '+':
@@ -79,6 +83,7 @@ function press(buttonValue) {
       break;
     case '=':
       calculate();
+      nextOperation = equal;
       $('#displayoutput').text(previousResult);
       break;
     case '+/-':

@@ -377,20 +377,20 @@
       assert.equal(displayOutput(), '16');
     });
 
-    /*it('should be 24', function(){
+    it('should be 24', function(){
         press('.');
         press(8);
         press('/');
         press('.');
         press(2);
         press('=');
-        //press('C');
-        //press(4);
+        press('C');
+        press(4);
         press('*');
         press(6);
         press('=');
       assert.equal(displayOutput(), '24');
-    }); */
+    }); 
     it('should be 10', function() {
       press('.');
       press(8);
